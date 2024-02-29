@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
+import Error from './errorPage';
 
 export const router = createBrowserRouter([
-  { path: '/', element: <Root /> },
+  { path: '/', element: <Root />, errorElement: <Error /> },
 ])
 
 function App() {
