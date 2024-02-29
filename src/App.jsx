@@ -2,9 +2,21 @@ import { useState } from 'react'
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
 import Error from './errorPage';
+import Contact from './routes/contact';
 
 export const router = createBrowserRouter([
-  { path: '/', element: <Root />, errorElement: <Error /> },
+  {
+    path: '/',
+    element: <Root />,
+    children: [
+      {
+        path: 'contacts/:contactId',
+        element: <Contact />
+      }
+    ],
+    errorElement: <Error />,
+  },
+
 ])
 
 function App() {

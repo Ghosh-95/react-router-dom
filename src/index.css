@@ -61,6 +61,15 @@ button:active {
   transform: translateY(1px);
 }
 
+#contact {
+  margin: 5rem auto;
+  box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.4);
+  padding: 2rem 1rem 0;
+  height: 16rem;
+  border-radius: 0.3rem;
+  width: 35rem;
+}
+
 #contact h1 {
   display: flex;
   align-items: flex-start;
@@ -71,6 +80,17 @@ button:active {
   display: flex;
   align-items: center;
   margin-top: 0.25rem;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: #121212;
+  transition: 0.3s all ease-out;
+}
+
+.contact-link:hover {
+  color: #3992ff;
+  font-weight: 600;
 }
 
 #contact h1 form button {
