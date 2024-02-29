@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom';
+import Root from './routes/root';
 
 export const router = createBrowserRouter([
-  { path: '/', element: <App /> },
+  { path: '/', element: <Root /> },
 ])
 
 function App() {
