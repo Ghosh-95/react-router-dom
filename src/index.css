@@ -266,6 +266,10 @@ i {
   color: white;
 }
 
+#sidebar nav a.active a:hover {
+  background-color: hsl(224, 98%, 58%);
+}
+
 #sidebar nav a.pending {
   color: hsl(224, 98%, 58%);
 }
