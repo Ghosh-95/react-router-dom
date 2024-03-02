@@ -1,4 +1,4 @@
-import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation } from "react-router-dom";
+import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation, useSubmit } from "react-router-dom";
 import { getContacts, createContact } from '../Contacts';
 import { useEffect } from "react";
 
@@ -17,10 +17,13 @@ export async function action() {
 export default function Root() {
     const { contacts, search } = useLoaderData();
     const navigation = useNavigation();
+    const submit = useSubmit();
+
+    const searching = navigation.location && new URLSearchParams(navigation.location.search).has("search");
 
     useEffect(() => {
         document.getElementById("q").value = search;
-    }, [q]);
+    }, [search]);
 
     return (
         <>
@@ -35,11 +38,13 @@ export default function Root() {
                             type="search"
                             name="search"
                             defaultValue={search}
+                            onChange={(e) => submit(e.currentTarget.form)}
+                            className={searching ? "loading" : ""}
                         />
                         <div
                             id="search-spinner"
                             aria-hidden
-                            hidden={true}
+                            hidden={!searching}
                         />
                         <div
                             className="sr-only"
