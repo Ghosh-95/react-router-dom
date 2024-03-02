@@ -1,9 +1,12 @@
 import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation } from "react-router-dom";
 import { getContacts, createContact } from '../Contacts';
+import { useEffect } from "react";
 
-export async function loader() {
-    const contacts = await getContacts();
-    return { contacts };
+export async function loader({ request }) {
+    const url = new URL(request.url);
+    const search = url.searchParams.get("search");
+    const contacts = await getContacts(search);
+    return { contacts, search };
 };
 
 export async function action() {
@@ -12,8 +15,12 @@ export async function action() {
 }
 
 export default function Root() {
-    const { contacts } = useLoaderData();
+    const { contacts, search } = useLoaderData();
     const navigation = useNavigation();
+
+    useEffect(() => {
+        document.getElementById("q").value = search;
+    }, [q]);
 
     return (
         <>
@@ -26,7 +33,8 @@ export default function Root() {
                             aria-label="Search contacts"
                             placeholder="Search"
                             type="search"
-                            name="q"
+                            name="search"
+                            defaultValue={search}
                         />
                         <div
                             id="search-spinner"

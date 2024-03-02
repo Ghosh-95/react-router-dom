@@ -70,8 +70,8 @@ export default function Contact() {
 }
 
 function Favorite({ contact }) {
-    // yes, this is a `let` for later
     let favorite = contact.favorite;
+
     return (
         <Form method="post">
             <button
