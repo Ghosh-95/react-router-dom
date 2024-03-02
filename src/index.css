@@ -281,7 +281,7 @@ i {
 }
 
 #detail.loading {
-  opacity: 0.25;
+  opacity: 0.10;
   transition: opacity 200ms;
   transition-delay: 200ms;
 }

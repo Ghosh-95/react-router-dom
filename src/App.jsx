@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
         action: editAction,
       },
       {
-        path: 'contact/:contactId/destroy',
+        path: 'contacts/:contactId/destroy',
         action: destroyAction,
       }
     ],
