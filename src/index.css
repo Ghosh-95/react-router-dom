@@ -82,7 +82,7 @@ button:active {
   margin-top: 0.25rem;
 }
 
-.contact-link {
+/* .contact-link {
   text-decoration: none;
   color: #121212;
   transition: 0.3s all ease-out;
@@ -91,7 +91,7 @@ button:active {
 .contact-link:hover {
   color: #3992ff;
   font-weight: 600;
-}
+} */
 
 #contact h1 form button {
   box-shadow: none;
@@ -311,15 +311,17 @@ i {
   color: hsl(224, 98%, 58%);
 }
 
-#contact a[href*="twitter"] {
+#contact a[href*="github"] {
   display: flex;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #3992ff;
   text-decoration: none;
+  transition: 0.3s all ease-in-out;
 }
 
-#contact a[href*="twitter"]:hover {
+#contact a[href*="github"]:hover {
   text-decoration: underline;
+  scale: 1.01;
 }
 
 #contact img {
