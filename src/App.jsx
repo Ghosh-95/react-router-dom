@@ -14,29 +14,34 @@ export const router = createBrowserRouter([
     element: <Root />,
     loader: rootLoader,
     action: rootAction,
+    errorElement: <Error />,
     children: [
       {
-        index: true,
-        element: <Index />
+        errorElement: <Error />,
+        children: [
+          {
+            index: true,
+            element: <Index />
+          },
+          {
+            path: 'contacts/:contactId',
+            element: <Contact />,
+            loader: contactLoader,
+            action: contactAction,
+          },
+          {
+            path: 'contacts/:contactId/edit',
+            element: <EditContact />,
+            loader: contactLoader,
+            action: editAction,
+          },
+          {
+            path: 'contacts/:contactId/destroy',
+            action: destroyAction,
+          }
+        ]
       },
-      {
-        path: 'contacts/:contactId',
-        element: <Contact />,
-        loader: contactLoader,
-        action: contactAction,
-      },
-      {
-        path: 'contacts/:contactId/edit',
-        element: <EditContact />,
-        loader: contactLoader,
-        action: editAction,
-      },
-      {
-        path: 'contacts/:contactId/destroy',
-        action: destroyAction,
-      }
     ],
-    errorElement: <Error />,
   },
 
 ])
